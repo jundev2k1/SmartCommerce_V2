@@ -3,7 +3,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Product.Infrastructure;
+namespace User.Infrastructure;
 
 public static class DependencyInjection
 {
