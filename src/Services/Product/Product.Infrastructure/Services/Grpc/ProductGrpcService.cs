@@ -3,7 +3,7 @@
 using BuildingBlocks.Contracts.Grpc.Product;
 using Grpc.Core;
 
-namespace Product.Infrastructure.Grpc;
+namespace Product.Infrastructure.Services.Grpc;
 
 public sealed class ProductGrpcService()
     : ProductProtoService.ProductProtoServiceBase

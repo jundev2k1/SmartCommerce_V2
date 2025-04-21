@@ -7,10 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentMigrator" Version="7.1.0" />
-    <PackageReference Include="FluentMigrator.Runner" Version="7.1.0" />
-    <PackageReference Include="FluentMigrator.Runner.Postgres" Version="7.1.0" />
-    <PackageReference Include="Grpc.AspNetCore" Version="2.70.0" />
+    <EmbeddedResource Include="Data\Migrations\Scripts\Product\001_CreateTable.pgsql" />
+    <EmbeddedResource Include="Data\Migrations\Scripts\Product\002_AddIndexes.pgsql" />
+    <EmbeddedResource Include="Data\Migrations\Scripts\Product\003_AddTrigger.pgsql" />
+    <EmbeddedResource Include="Data\Migrations\Scripts\Product\004_AddStoredProcedure.pgsql" />
+    <EmbeddedResource Include="Data\Migrations\Scripts\Product\005_Seed_InitialData.pgsql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dbup-core" Version="6.0.4" />
+    <PackageReference Include="dbup-postgresql" Version="6.0.3" />
   </ItemGroup>
 
   <ItemGroup>
