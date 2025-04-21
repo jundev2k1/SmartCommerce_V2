@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+option csharp_namespace = "BuildingBlocks.Contracts.Grpc.Product";
+
+package product;
+
+service ProductProtoService {
+  rpc GetProduct (GetProductRequest) returns (GetProductResponse);
+  rpc GetProducts (GetProductsRequest) returns (GetProductsResponse);
+  rpc GetVariant (GetVariantRequest) returns (GetVariantResponse);
+  rpc GetVariantsByProductId (GetVariantsByProductIdRequest) returns (GetVariantsByProductIdResponse);
+}
+
+message VariantModel {
+  string variant_id = 1;
+  string product_id = 2;
+  string name = 3;
+  string description = 4;
+  string image_url = 5;
+  string sku = 6;
+  double price = 7;
+  double discount_price = 8;
+  int32 stock_quantity = 9;
+}
+
+message ProductModel {
+  string product_id = 1;
+  string name = 2;
+  string description = 3;
+  string image_url = 4;
+  string category_id = 5;
+  repeated VariantModel variants = 6;
+}
+
+// Get product
+message GetProductRequest {
+  string product_id = 1;
+}
+message GetProductResponse {
+  ProductModel product = 1;
+}
+
+// Get products
+message GetProductsRequest {
+  repeated string product_id = 1;
+}
+message GetProductsResponse {
+  repeated ProductModel products = 1;
+}
+
+// Get product variant
+message GetVariantRequest {
+  string variant_id = 1;
+}
+message GetVariantResponse {
+  VariantModel variant = 1;
+}
+
+// Get product variants by product id
+message GetVariantsByProductIdRequest {
+  string product_id = 1;
+}
+message GetVariantsByProductIdResponse {
+  repeated VariantModel variants = 1;
+}

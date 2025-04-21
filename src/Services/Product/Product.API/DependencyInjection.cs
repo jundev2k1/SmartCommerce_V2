@@ -12,6 +12,7 @@ public static class DependencyInjection
             .AddSwaggerGen();
         return services;
     }
+
     public static IApplicationBuilder UseApiServices(this WebApplication app)
     {
         if (app.Environment.IsDevelopment())

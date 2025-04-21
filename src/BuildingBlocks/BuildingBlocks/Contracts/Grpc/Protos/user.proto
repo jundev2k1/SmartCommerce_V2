@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option csharp_namespace = "BuildingBlocks.Contracts.Grpc.User";
+
+package user;
+
+service UserProtoService {
+  rpc GetUser (GetUserRequest) returns (GetUserResponse);
+  rpc GetUsers (GetUsersRequest) returns (GetUsersResponse);
+}
+
+enum UserSex {
+    MALE = 0;
+    FEMALE = 1;
+    OTHER = 2;
+}
+
+message UserModel {
+  string user_id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string email = 4;
+  string phone_number = 5;
+  string address_1 = 6;
+  string address_2 = 7;
+  string address_3 = 8;
+  string address_4 = 9;
+  UserSex sex = 10;
+}
+
+message GetUserRequest {
+  string user_id = 1;
+}
+
+message GetUsersRequest {
+  repeated string user_id = 1;
+}
+
+message GetUserResponse {
+  UserModel user = 1;
+}
+
+message GetUsersResponse {
+  repeated UserModel users = 1;
+}
