@@ -9,15 +9,15 @@ namespace User.Infrastructure;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
-    {
-        services.AddGrpc();
-        services.AddGrpcClients();
-        return services;
-    }
+	public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+	{
+		services.AddGrpc();
+		services.AddGrpcClients();
+		return services;
+	}
 
-    public static IApplicationBuilder UseInfrastructure(this WebApplication app)
-    {
-        return app;
-    }
+	public static IApplicationBuilder UseInfrastructure(this WebApplication app)
+	{
+		return app;
+	}
 }

@@ -7,30 +7,30 @@ namespace Product.API;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddApiServices(this IServiceCollection services, IConfiguration configuration)
-    {
-        services.AddScoped<IDbConnection>(option =>
-            new NpgsqlConnection(configuration.GetConnectionString("DefaultConnection")));
+	public static IServiceCollection AddApiServices(this IServiceCollection services, IConfiguration configuration)
+	{
+		services.AddScoped<IDbConnection>(option =>
+			new NpgsqlConnection(configuration.GetConnectionString("DefaultConnection")));
 
-        services.AddControllers();
+		services.AddControllers();
 
-        services.AddOpenApi()
-            .AddEndpointsApiExplorer()
-            .AddSwaggerGen();
+		services.AddOpenApi()
+			.AddEndpointsApiExplorer()
+			.AddSwaggerGen();
 
-        return services;
-    }
+		return services;
+	}
 
-    public static IApplicationBuilder UseApiServices(this WebApplication app)
-    {
-        if (app.Environment.IsDevelopment())
-        {
-            app.MapOpenApi();
-        }
-        app.UseAuthorization()
-            .UseSwagger()
-            .UseSwaggerUI();
-        app.MapControllers();
-        return app;
-    }
+	public static IApplicationBuilder UseApiServices(this WebApplication app)
+	{
+		if (app.Environment.IsDevelopment())
+		{
+			app.MapOpenApi();
+		}
+		app.UseAuthorization()
+			.UseSwagger()
+			.UseSwaggerUI();
+		app.MapControllers();
+		return app;
+	}
 }

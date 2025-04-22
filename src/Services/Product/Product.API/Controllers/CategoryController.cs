@@ -6,9 +6,9 @@ namespace Product.API.Controllers;
 [Route("[controller]")]
 public sealed class CategoryController(ILogger<CategoryController> logger) : ControllerBase
 {
-    public async Task<string[]> GetCategory(string categoryId)
-    {
-        logger.LogInformation("GetCategory called with categoryId: {categoryId}", categoryId);
-        return await Task.FromResult(Array.Empty<string>());
-    }
+	public async Task<string[]> GetCategory(string categoryId)
+	{
+		logger.LogInformation("GetCategory called with categoryId: {categoryId}", categoryId);
+		return await Task.FromResult(Array.Empty<string>());
+	}
 }

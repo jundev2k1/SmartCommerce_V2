@@ -2,8 +2,8 @@
 
 namespace Product.Application.Dtos;
 public record ProductDto(
-    string ProductId,
-    string Name,
-    string ShortDescription,
-    string Description,
-    decimal Price);
+	string ProductId,
+	string Name,
+	string ShortDescription,
+	string Description,
+	decimal Price);

@@ -10,16 +10,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Configure Kestrel to use HTTP/2
 builder.WebHost.ConfigureKestrel(options =>
 {
-    options.ListenAnyIP(8080, listenOptions =>
-    {
-        listenOptions.Protocols = HttpProtocols.Http2;
-    });
+	options.ListenAnyIP(8080, listenOptions =>
+	{
+		listenOptions.Protocols = HttpProtocols.Http2;
+	});
 });
 
 // Add services to the container.
 builder.Services.AddApplication(builder.Configuration)
-    .AddInfrastructure(builder.Configuration)
-    .AddApiServices();
+	.AddInfrastructure(builder.Configuration)
+	.AddApiServices();
 
 var app = builder.Build();
 

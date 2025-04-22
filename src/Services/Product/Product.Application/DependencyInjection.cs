@@ -9,16 +9,16 @@ namespace Product.Application;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
-    {
-        services.AddMediatR(config =>
-        {
-            config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-        });
+	public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
+	{
+		services.AddMediatR(config =>
+		{
+			config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+		});
 
-        services.AddFeatureManagement();
+		services.AddFeatureManagement();
 
-        // Add application services here
-        return services;
-    }
+		// Add application services here
+		return services;
+	}
 }

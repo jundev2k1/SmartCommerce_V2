@@ -6,15 +6,15 @@ using Grpc.Core;
 namespace Product.Infrastructure.Services.Grpc;
 
 public sealed class ProductGrpcService()
-    : ProductProtoService.ProductProtoServiceBase
+	: ProductProtoService.ProductProtoServiceBase
 {
-    public override async Task<GetProductResponse> GetProduct(GetProductRequest request, ServerCallContext context)
-    {
-        return await Task.FromResult(new GetProductResponse() { Product = new ProductModel { Name = "Test grpc product" } });
-    }
+	public override async Task<GetProductResponse> GetProduct(GetProductRequest request, ServerCallContext context)
+	{
+		return await Task.FromResult(new GetProductResponse() { Product = new ProductModel { Name = "Test grpc product" } });
+	}
 
-    public override async Task<GetProductsResponse> GetProducts(GetProductsRequest request, ServerCallContext context)
-    {
-        return await Task.FromResult(new GetProductsResponse());
-    }
+	public override async Task<GetProductsResponse> GetProducts(GetProductsRequest request, ServerCallContext context)
+	{
+		return await Task.FromResult(new GetProductsResponse());
+	}
 }

@@ -3,10 +3,10 @@
 namespace Product.Application.Features.Products.Commands.CreateProduct;
 
 public sealed class CreateProductHandler()
-    : ICommandHandler<CreateProductCommand, CreateProductResult>
+	: ICommandHandler<CreateProductCommand, CreateProductResult>
 {
-    public async Task<CreateProductResult> Handle(CreateProductCommand request, CancellationToken cancellationToken)
-    {
-        return await Task.Run(() => new CreateProductResult("pro1"));
-    }
+	public async Task<CreateProductResult> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+	{
+		return await Task.Run(() => new CreateProductResult("pro1"));
+	}
 }
