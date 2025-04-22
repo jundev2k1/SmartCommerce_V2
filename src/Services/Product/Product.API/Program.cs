@@ -33,7 +33,7 @@ app.UseApiServices();
 if (app.Environment.IsDevelopment())
 {
 	MigrationRunner.Run(
-		builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty);
+		builder.Configuration.GetConnectionString("DefaultConnection")!);
 }
 
 app.Run();

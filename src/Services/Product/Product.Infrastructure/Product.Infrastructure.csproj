@@ -7,11 +7,83 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Data\Migrations\Scripts\Product\001_CreateTable.pgsql" />
-    <EmbeddedResource Include="Data\Migrations\Scripts\Product\002_AddIndexes.pgsql" />
-    <EmbeddedResource Include="Data\Migrations\Scripts\Product\003_AddTrigger.pgsql" />
-    <EmbeddedResource Include="Data\Migrations\Scripts\Product\004_AddStoredProcedure.pgsql" />
-    <EmbeddedResource Include="Data\Migrations\Scripts\Product\005_Seed_InitialData.pgsql" />
+    <None Remove="Data\Migrations\Scripts\004_ProductBrand\001_CreateTable.pgsql" />
+    <None Remove="Data\Migrations\Scripts\004_ProductBrand\002_AddIndexes.pgsql" />
+    <None Remove="Data\Migrations\Scripts\003_ProductCategory\001_CreateTable.pgsql" />
+    <None Remove="Data\Migrations\Scripts\003_ProductCategory\002_AddIndexes.pgsql" />
+    <None Remove="Data\Migrations\Scripts\006_ProductImages\002_AddIndexes.pgsql" />
+    <None Remove="Data\Migrations\Scripts\005_ProductRelated\001_CreateTable.pgsql" />
+    <None Remove="Data\Migrations\Scripts\002_ProductVariant\002_AddIndexes.pgsql" />
+    <None Remove="Data\Migrations\Scripts\002_ProductVariant\003_AddTrigger.pgsql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Migrations\Scripts\002_ProductVariant\004_AddStoredProcedure.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\003_ProductCategory\003_AddStoredProcedure.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\004_ProductBrand\001_CreateTable.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\004_ProductBrand\002_AddIndexes.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\003_ProductCategory\001_CreateTable.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\003_ProductCategory\002_AddIndexes.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\004_ProductBrand\003_AddStoredProcedure.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\005_ProductRelated\003_AddStoredProcedure.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\006_ProductImages\001_CreateTable.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\006_ProductImages\002_AddIndexes.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\005_ProductRelated\001_CreateTable.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\005_ProductRelated\002_AddIndexes.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\002_ProductVariant\001_CreateTable.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\002_ProductVariant\002_AddIndexes.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\002_ProductVariant\003_AddTrigger.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Migrations\Scripts\001_Product\001_CreateTable.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\001_Product\002_AddIndexes.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\001_Product\003_AddTrigger.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\001_Product\004_AddStoredProcedure.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\001_Product\005_Seed_InitialData.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\Scripts\006_ProductImages\003_AddStoredProcedure.pgsql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

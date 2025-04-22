@@ -1,5 +1,9 @@
 ﻿// Copyright (c) 2025 - Jun Dev. All rights reserved
 
+using BuildingBlocks.Contracts.Grpc.Extensions;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Product.Infrastructure.Services.Grpc;
 
 namespace Product.Infrastructure;
