@@ -23,6 +23,18 @@ services:
     volumes:
       - postgres_category:/var/lib/postgresql/data/
 
+  branddb:
+    container_name: branddb
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=BrandDb
+    restart: always
+    ports:
+        - "5434:5432"
+    volumes:
+      - postgres_brand:/var/lib/postgresql/data/
+
   product.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -75,6 +87,21 @@ services:
     ports:
       - "5103:8080"
       - "5153:8081"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+      
+  brand.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ConnectionStrings__Database=Server=categorydb;Database=BrandDb;User Id=postgres;Password=postgres;Encrypt=False;TrustServerCertificate=True
+    depends_on:
+      - branddb
+    ports:
+      - "5104:8080"
+      - "5154:8081"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro

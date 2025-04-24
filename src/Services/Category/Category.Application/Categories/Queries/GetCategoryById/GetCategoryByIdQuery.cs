@@ -4,4 +4,4 @@ namespace Category.Application.Categories.Queries.GetCategoryById;
 
 public record GetCategoryByIdQuery(string CategoryId) : IQuery<GetCategoryByIdResult>;
 
-public record GetCategoryByIdResult(CategoryItem? category);
+public record GetCategoryByIdResult(CategoryItem? Category);

@@ -4,4 +4,4 @@ namespace Category.Application.Categories.Queries.GetCategoryIncludeChildren;
 
 public record GetCategoryIncludeChildrenQuery(string CategoryId) : IQuery<GetCategoryIncludeChildrenResult>;
 
-public record GetCategoryIncludeChildrenResult(CategoryItem? Category, IEnumerable<CategoryItem> Children);
+public record GetCategoryIncludeChildrenResult(IEnumerable<CategoryItem> Items);

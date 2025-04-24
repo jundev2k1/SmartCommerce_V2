@@ -7,6 +7,9 @@ services:
   categorydb:
     image: postgres
 
+  branddb:
+    image: postgres
+
   product.api:
     image: ${DOCKER_REGISTRY-}productapi
     build:
@@ -31,6 +34,12 @@ services:
       context: .
       dockerfile: Services/Category/Category.API/Dockerfile
 
+  brand.api:
+    image: ${DOCKER_REGISTRY-}brandapi
+    build:
+      context: .
+      dockerfile: Services/Brand/Brand.API/Dockerfile
+
   yarpapigateway:
     image: ${DOCKER_REGISTRY-}yarpapigateway
     build:
@@ -40,3 +49,4 @@ services:
 volumes:
   postgres_product:
   postgres_category:
+  postgres_brand:

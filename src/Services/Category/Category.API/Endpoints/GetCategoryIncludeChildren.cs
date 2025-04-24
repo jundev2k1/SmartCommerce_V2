@@ -1,6 +1,11 @@
-﻿namespace Category.API.Endpoints;
+﻿// Copyright (c) 2025 - Jun Dev. All rights reserved
 
-public record GetCategoryIncludeChildrenResponse(CategoryItem? category);
+using Category.Application.Categories.Queries.GetCategoryIncludeChildren;
+using Mapster;
+
+namespace Category.API.Endpoints;
+
+public record GetCategoryIncludeChildrenResponse(IEnumerable<CategoryItem> categories);
 
 public sealed class GetCategoryIncludeChildren() : ICarterModule
 {
