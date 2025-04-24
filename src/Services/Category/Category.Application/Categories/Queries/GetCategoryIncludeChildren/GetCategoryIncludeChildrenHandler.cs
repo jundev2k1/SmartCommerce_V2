@@ -10,9 +10,11 @@ public sealed class GetCategoryIncludeChildrenHandler(IApplicationDbContext dbCo
 {
     public async Task<GetCategoryIncludeChildrenResult> Handle(GetCategoryIncludeChildrenQuery query, CancellationToken cancellation)
     {
-        var result = await dbContext.Categories
+        var categoryList = await dbContext.Categories.ToArrayAsync(cancellation);
+
+        var result = categoryList
             .Where(cate => cate.Id.Value.StartsWith(query.CategoryId))
-            .ToArrayAsync(cancellation);
+            .ToArray();
         return new GetCategoryIncludeChildrenResult(result);
     }
 }
