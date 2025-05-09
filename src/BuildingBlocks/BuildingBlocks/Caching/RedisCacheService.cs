@@ -16,10 +16,10 @@ public class RedisCacheService(IDistributedCache distributedCache) : IRedisCache
 
     public async Task SetAsync<T>(string key, T value, TimeSpan? expirationTime = null, CancellationToken cancellationToken = default)
     {
-        var options = new DistributedCacheEntryOptions
-        {
-            AbsoluteExpirationRelativeToNow = expirationTime ?? TimeSpan.FromMinutes(5)
-        };
+        var options = new DistributedCacheEntryOptions();
+        if (expirationTime != null)
+            options.AbsoluteExpirationRelativeToNow = expirationTime;
+
         var jsonValue = JsonConvert.SerializeObject(value);
         await distributedCache.SetStringAsync(key, jsonValue, options, cancellationToken);
     }
