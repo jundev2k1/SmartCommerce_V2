@@ -1,8 +1,8 @@
 ﻿// Copyright (c) 2025 - Jun Dev. All rights reserved
 
-using System.Text.Json;
 using BuildingBlocks.Caches;
 using Microsoft.Extensions.Caching.Distributed;
+using Newtonsoft.Json;
 
 namespace BuildingBlocks.Caching;
 
@@ -11,7 +11,7 @@ public class RedisCacheService(IDistributedCache distributedCache) : IRedisCache
     public async Task<T?> GetAsync<T>(string key, CancellationToken cancellationToken = default)
     {
         var value = await distributedCache.GetStringAsync(key, cancellationToken);
-        return value is null ? default : JsonSerializer.Deserialize<T>(value);
+        return value is null ? default : JsonConvert.DeserializeObject<T>(value);
     }
 
     public async Task SetAsync<T>(string key, T value, TimeSpan? expirationTime = null, CancellationToken cancellationToken = default)
@@ -20,7 +20,7 @@ public class RedisCacheService(IDistributedCache distributedCache) : IRedisCache
         {
             AbsoluteExpirationRelativeToNow = expirationTime ?? TimeSpan.FromMinutes(5)
         };
-        var jsonValue = JsonSerializer.Serialize(value);
+        var jsonValue = JsonConvert.SerializeObject(value);
         await distributedCache.SetStringAsync(key, jsonValue, options, cancellationToken);
     }
 

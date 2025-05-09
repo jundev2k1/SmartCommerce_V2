@@ -8,6 +8,9 @@ public static class DependencyInjection
 	{
 		services.AddCarter();
 
+		services.AddControllers()
+			.AddNewtonsoftJson();
+
 		return services;
 	}
 	public static IApplicationBuilder UseApiServices(this WebApplication app)

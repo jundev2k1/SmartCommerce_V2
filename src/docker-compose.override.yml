@@ -1,4 +1,10 @@
 services:
+  distributedcache:
+    container_name: distributedcache
+    restart: always
+    ports:
+      - "6379:6379"
+
   productdb:
     container_name: productdb
     environment:
@@ -17,6 +23,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=CategoryDb
+      - ConnectionStrings__Redis=distributedcache:6379
     restart: always
     ports:
         - "5433:5432"
@@ -43,6 +50,7 @@ services:
       - ConnectionStrings__Database=Server=productdb;Database=ProductDb;User Id=postgres;Password=postgres;Encrypt=False;TrustServerCertificate=True
     depends_on:
       - productdb
+      - distributedcache
     ports:
       - "5100:8080"
       - "5150:8081"
@@ -81,9 +89,10 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
-      - ConnectionStrings__Database=Server=categorydb;Database=CategoryDb;User Id=postgres;Password=postgres;Encrypt=False;TrustServerCertificate=True
+      - ConnectionStrings__Database=Server=categorydb;Database=CategoryDb;User Id=postgres;Password=postgres
     depends_on:
       - categorydb
+      - distributedcache
     ports:
       - "5103:8080"
       - "5153:8081"
@@ -99,6 +108,7 @@ services:
       - ConnectionStrings__Database=Server=categorydb;Database=BrandDb;User Id=postgres;Password=postgres;Encrypt=False;TrustServerCertificate=True
     depends_on:
       - branddb
+      - distributedcache
     ports:
       - "5104:8080"
       - "5154:8081"

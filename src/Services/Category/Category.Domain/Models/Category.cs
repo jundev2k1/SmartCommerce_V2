@@ -48,4 +48,24 @@ public sealed class CategoryItem : Entity<CategoryId>
 
 		return category;
 	}
+
+	public void Update(
+		string name,
+		string avatar,
+		string description,
+		int priority,
+		bool? validFlg,
+		DateTime? lastModified,
+		string? lastModifiedBy)
+	{
+		this.Name = name;
+        this.Avatar = avatar;
+        this.Description = description;
+        this.Priority = priority;
+        this.ValidFlg = validFlg ?? true;
+        this.LastModified = lastModified ?? DateTime.UtcNow;
+        this.LastModifiedBy = lastModifiedBy ?? string.Empty;
+
+        ArgumentException.ThrowIfNullOrWhiteSpace(this.Name);
+	}
 }

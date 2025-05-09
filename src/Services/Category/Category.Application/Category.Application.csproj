@@ -7,16 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Categories\Commands\CreateNewCategory\**" />
+    <EmbeddedResource Remove="Categories\Commands\CreateNewCategory\**" />
+    <None Remove="Categories\Commands\CreateNewCategory\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj" />
     <ProjectReference Include="..\Category.Domain\Category.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Categories\Commands\" />
   </ItemGroup>
 
 </Project>
