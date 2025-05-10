@@ -15,13 +15,13 @@ public sealed class GetCategoryIncludeChildrenHandler(
 {
     public async Task<GetCategoryIncludeChildrenResult> Handle(GetCategoryIncludeChildrenQuery query, CancellationToken cancellation)
     {
-        var categoryList = await cacheService.GetAllCategoriesAsync();
+        var categoryList = await cacheService.GetAllCategoriesAsync(cancellation);
         logger.LogInformation("GetCategoryIncludeChildrenHandler: {CategoryList}", query.CategoryId);
         logger.LogInformation(JsonConvert.SerializeObject(categoryList));
         var result = categoryList
-            .Where(cate => cate.Id.Value.StartsWith(query.CategoryId))
-            .OrderBy(cate => cate.Id.Value.Length)
-            .ThenBy(cate => cate.Id.Value)
+            .Where(cate => cate.Id.StartsWith(query.CategoryId))
+            .OrderBy(cate => cate.Id.Length)
+            .ThenBy(cate => cate.Id)
             .ToArray();
         return new GetCategoryIncludeChildrenResult(result);
     }

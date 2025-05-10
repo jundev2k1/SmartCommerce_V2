@@ -3,4 +3,5 @@
 global using BuildingBlocks.CQRS;
 global using Category.Domain.Models;
 global using Category.Domain.ValueObjects;
+global using Mapster;
 global using MediatR;

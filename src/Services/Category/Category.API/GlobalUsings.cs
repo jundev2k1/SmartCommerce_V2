@@ -5,3 +5,4 @@ global using Category.Domain.Models;
 global using Mapster;
 global using MediatR;
 global using Microsoft.AspNetCore.Mvc;
+global using Newtonsoft.Json;

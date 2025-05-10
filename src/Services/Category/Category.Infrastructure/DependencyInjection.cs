@@ -34,7 +34,7 @@ public static class DependencyInjection
 		services.AddStackExchangeRedisCache(option =>
 		{
 			option.Configuration = configuration.GetConnectionString("Redis");
-			option.InstanceName = "Category";
+			option.InstanceName = "category:";
         });
 
         services.AddSingleton<IRedisCacheService, RedisCacheService>();
